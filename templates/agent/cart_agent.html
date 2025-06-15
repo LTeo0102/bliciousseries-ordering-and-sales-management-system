@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Cart - Agent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}">
+</head>
+<body>
+
+<!-- Back Button -->
+<a href="/product_agent" class="back-link">←</a>
+
+<header><h1>Bliciousseries</h1></header>
+
+<div class="page-title"><h2>Your Cart</h2></div>
+
+<form id="checkoutForm" enctype="multipart/form-data">
+    <label style="margin-left: 15px;">
+        <input type="checkbox" id="select-all" checked> Select/Deselect All
+    </label>
+
+    <!-- Cart Table -->
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Product</th>
+                <th>Price (RM)</th>
+                <th>Qty</th>
+                <th>Total (RM)</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="cart-body"></tbody>
+        <tfoot id="cart-summary-row"></tfoot>
+    </table>
+
+    <!-- Split Section -->
+    <div class="cart-flex">
+        <!-- Payment Details -->
+        <div class="payment-box">
+            <h4>💳 Payment Details</h4>
+            <div class="payment-method">
+                <label><input type="radio" name="payment" value="now" checked> Pay Now</label>
+                <label><input type="radio" name="payment" value="later"> Pay Later</label>
+            </div>
+
+            <div id="pay-now-section" style="display: block;">
+                <img src="{{ url_for('static', filename='images/duitnow_qr.png') }}" alt="QR Code" class="qr-img">
+                <p><strong>Account:</strong> 1234 5678 9012 (Bliciousseries)</p>
+                <label for="receipt">Upload Receipt (Image/PDF):</label>
+                <input type="file" id="receipt" name="receipt" accept="image/*,application/pdf">
+            </div>
+        </div>
+
+        <!-- Shipping Info -->
+        <div class="shipping-box">
+            <h4>🚚 Shipping Information</h4>
+            <label for="shipping_name"><strong>Receiver's Name:</strong></label>
+            <input type="text" id="shipping_name" name="shipping_name" required>
+
+            <label for="shipping_phone"><strong>Phone Number:</strong></label>
+            <input type="text" id="shipping_phone" name="shipping_phone" required>
+
+            <label for="shipping_address"><strong>Shipping Address:</strong></label>
+            <textarea id="shipping_address" name="shipping_address" rows="3" required></textarea>
+        </div>
+    </div>
+
+    <!-- Checkout -->
+    <div class="checkout-center">
+        <button type="submit" class="btn-checkout">Proceed to Checkout</button>
+    </div>
+</form>
+
+
+<footer><p>&copy; 2025 Bliciousseries 🧁</p></footer>
+
+<script>
+    localStorage.setItem("user_id", "{{ session['user_id'] }}");
+</script>
+
+<!-- Separated JavaScript File -->
+<script src="{{ url_for('static', filename='js/cart_agent.js') }}"></script>
+</body>
+</html>

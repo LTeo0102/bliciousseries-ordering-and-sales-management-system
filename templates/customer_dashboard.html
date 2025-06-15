@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Bliciousseries</h1> <!-- Company name header -->
+    </header>
+    
+    <!-- Logout Button positioned at the top-right -->
+    <div class="logout-container">
+        <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('product_customer') }}">Products</a></li>
+            <li><a href="{{ url_for('customer_orders') }}">Order</a></li>
+            <!-- Add more menu options as needed -->
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Welcome to the Customer Dashboard</h2>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bliciousseries | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
+

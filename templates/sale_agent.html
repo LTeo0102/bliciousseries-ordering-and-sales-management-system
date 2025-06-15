@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agent Sales Summary - Bliciousseries</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sale_agent.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="{{ url_for('static', filename='js/sale_agent.js') }}"></script>
+</head>
+<body>
+    <a href="{{ url_for('agent_dashboard') }}" class="back-link">&larr; Back</a>
+
+    <header>
+        <h1>Bliciousseries</h1>
+    </header>
+
+    <main>
+        <div class="page-title">
+            <h2>Sales Summary</h2>
+        </div>
+
+        <div class="filters">
+            <label>View:
+                <select id="viewType">
+                    <option value="own">Own Purchases</option>
+                    <option value="referral">Referral</option>
+                    <option value="combined">All</option>
+                </select>
+            </label>
+            <label>Year:
+                <select id="year"></select>
+            </label>
+            <label>Rows:
+                <select id="perPage">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="summary-box">
+    <span class="summary-label">🍪 Total Commission Earned:</span>
+    <span class="summary-value">RM <span id="totalSales">0.00</span></span>
+</div>
+
+
+        <section class="charts">
+            <div class="chart-box">
+                <h3>📈 Yearly Commission Trend</h3>
+                <canvas id="salesChart"></canvas>
+                <div class="legend-row">
+                    <span class="legend" style="background-color:#ffab91;">Own</span>
+                    <span class="legend" style="background-color:#aed581;">Referral</span>
+                    <span class="legend" style="background-color:#ce93d8;">Combined</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Date</th>
+                        <th>Order ID</th>
+                        <th>Type</th>
+                        <th>Commission (RM)</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody id="salesTableBody"></tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <button id="prevPage">Previous</button>
+            <span id="pageInfo"></span>
+            <button id="nextPage">Next</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bliciousseries. Made with ❤️ and 🍪.</p>
+    </footer>
+</body>
+</html>

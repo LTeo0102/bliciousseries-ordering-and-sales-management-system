@@ -1,0 +1,220 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff9f1; /* Soft cream background */
+    color: #4e342e; /* Warm chocolate text */
+    min-height: 100vh; /* Full viewport height */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Header Styling */
+header {
+    background-color: #3e2723; /* Darker Chocolate Color */
+    color: #fff9f1; /* Light cream text */
+    padding: 20px;
+    text-align: center;
+    font-size: 36px;
+    letter-spacing: 2px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Page Title (Centered) */
+.page-title {
+    background-color: #6d4c41; /* Medium chocolate brown */
+    color: #fff9f1; /* Light cream text */
+    text-align: center;
+    padding: 12px 0;
+}
+
+/* Back Link Button (Top-Left Position) */
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #6b4226; /* Chocolate brown */
+    color: #fff; /* White text */
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #8c5939; /* Lighter chocolate brown */
+}
+
+/* Product List Styling */
+ul.product-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);  /* 6 columns */
+    gap: 20px;
+    justify-items: center; /* Center items horizontally */
+    margin-top: 20px;
+    padding-bottom: 100px; /* Optional padding to ensure smooth scrolling */
+}
+
+
+/* Product Item Styling */
+.product-item {
+    background-color: #fff;
+    padding: 20px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.product-item img.product-image {
+    max-width: 100px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.product-item h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    font-weight: normal;
+}
+
+.product-item p {
+    font-size: 16px;
+    color: #3e2723;
+}
+
+/* Add to Cart, Buy Now, and View Buttons */
+.add-to-cart, .buy-now, .view-product {
+    background-color: #6d4c41; /* Medium chocolate brown */
+    color: #fff9f1; /* Light cream text */
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    display: inline-block;
+    width: 100%; /* Makes buttons fill the width of the product item */
+}
+
+.out-of-stock {
+    opacity: 0.5;
+    background-color: #eeeeee;
+    pointer-events: none;
+}
+
+.product-item {
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+
+.add-to-cart:hover, .buy-now:hover, .view-product:hover {
+    background-color: #8c5939; /* Lighter chocolate brown on hover */
+}
+
+/* Specific styling for "Add to Cart" button */
+.add-to-cart {
+    background-color: #3e2723; /* Dark chocolate for Add to Cart */
+}
+
+.add-to-cart:hover {
+    background-color: #6d4c41; /* Lighter brown on hover */
+}
+
+/* Specific styling for "Buy Now" button */
+.buy-now {
+    background-color: #6d4c41; /* Medium brown for Buy Now */
+}
+
+.buy-now:hover {
+    background-color: #3e2723; /* Darker brown on hover */
+}
+
+/* Specific styling for "View" button */
+.view-product {
+    background-color: #3e2723; /* Dark chocolate for View */
+}
+
+.view-product:hover {
+    background-color: #6d4c41; /* Lighter brown on hover */
+}
+
+
+/* Main Content Area Styling */
+main {
+    flex-grow: 1; /* Ensure the content area grows to fill available space */
+    padding-bottom: 60px; /* Optional padding for footer visibility */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #3e2723; /* Dark chocolate background */
+    color: #fff9f1; /* Light cream text */
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0; /* Stick the footer to the bottom */
+    left: 0; /* Align footer to the left edge */
+    z-index: 10; /* Ensure footer stays above content */
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.product-item img {
+    width: 100%;
+    max-width: 120px;
+    max-height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+
+/* Filter Dropdown Styling */
+.filter-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.filter-container label {
+    font-size: 18px;
+    color: #4e342e;
+    margin-right: 10px;
+}
+
+.filter-container select {
+    padding: 8px 16px;
+    font-size: 16px;
+    border: 2px solid #6d4c41;
+    border-radius: 8px;
+    background-color: #fffaf3;
+    color: #4e342e;
+    font-family: 'Arial', sans-serif;
+    transition: border-color 0.3s;
+}
+
+.filter-container select:focus {
+    outline: none;
+    border-color: #3e2723;
+    background-color: #fff4e6;
+}

@@ -1,0 +1,96 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff9f1; /* Soft cream background */
+    color: #4e342e; /* Warm chocolate text */
+}
+
+/* Header Styling */
+header {
+    background-color: #3e2723; /* Darker Chocolate Color */
+    color: #fff9f1; /* Light cream text */
+    padding: 20px;
+    text-align: center;
+    font-size: 36px;
+    letter-spacing: 2px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header Title Styling */
+header h1 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 48px; /* Increased size for company name */
+}
+
+/* Page Title Styling */
+.page-title {
+    background-color: #6d4c41; /* Medium chocolate brown */
+    color: #fff9f1; /* Light cream text */
+    text-align: center;
+    padding: 12px 0;
+    font-size: 24px;
+}
+
+/* Content Section Styling */
+.content {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.content h2 {
+    font-size: 32px;
+    color: #6d4c41; /* Lighter brown */
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.content strong {
+    font-size: 22px;
+    color: #3e2723; /* Dark chocolate */
+}
+
+/* Back Link Button */
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #6b4226; /* Chocolate brown */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #8c5939; /* Lighter chocolate brown */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #3e2723; /* Dark chocolate background */
+    color: #fff9f1; /* Light cream text */
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
+}

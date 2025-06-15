@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Complete Payment - Bliciousseries</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='pay_later_payment.css') }}">
+</head>
+<body>
+
+<!-- Back Button -->
+<a href="{{ url_for('pay_later') }}" class="back-link">←</a>
+
+<!-- Header -->
+<header>
+    <h1>Bliciousseries</h1>
+</header>
+
+<!-- Title -->
+<div class="page-title">
+    <h2>Complete Your Payment</h2>
+</div>
+
+<!-- Main Content -->
+<main>
+    <div class="payment-container">
+        <p>Please scan the QR code below to make your payment:</p>
+        <img src="{{ url_for('static', filename='images/duitnow_qr.png') }}" alt="QR Code" class="qr">
+
+        <!-- Bank Info -->
+        <div class="bank-info">
+            <p><strong>Bank:</strong> Maybank</p>
+            <p><strong>Account No:</strong> 1627 8000 1234</p>
+            <p><strong>Name:</strong> Bliciousseries Sdn Bhd</p>
+        </div>
+
+        <form action="{{ url_for('pay_later_submit', order_id=order_id) }}" method="POST" enctype="multipart/form-data">
+            <p><strong>Upload your payment receipt:</strong></p>
+            <input type="file" name="receipt" id="receipt" accept="image/*,application/pdf" required><br>
+            <button type="submit">Submit Receipt</button>
+        </form>
+    </div>
+</main>
+
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Bliciousseries. Made with ❤️ and 🍪.</p>
+</footer>
+
+</body>
+</html>

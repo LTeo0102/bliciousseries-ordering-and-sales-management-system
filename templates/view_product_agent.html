@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Product for Agent</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='view_product.css') }}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Bliciousseries</h1>
+    </header>
+
+    <!-- Page Title for Manage Products -->
+    <div class="page-title">
+        Product Details
+    </div>
+
+    <div class="product-details-container">
+        <div class="product-details">
+            <img src="{{ url_for('static', filename='uploads/' + product[7]) }}" alt="{{ product[1] }}" class="product-image">
+            <h2>{{ product[1] }}</h2> <!-- Product Name -->
+            <p><strong>Description:</strong> {{ product[2] }}</p> <!-- Product Description -->
+            <p><strong>Price:</strong> RM {{ product[4] }}</p> <!-- Product Price -->
+            <p><strong>Quantity:</strong> {{ product[6] }}</p> <!-- Product Quantity -->
+        </div>
+        <a href="{{ url_for('product_agent') }}" class="back-link">←</a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Bliciousseries. All rights reserved.</p>
+    </footer>
+</body>
+</html>

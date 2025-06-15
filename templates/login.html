@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+   <!-- Header Section -->
+    <header>
+        <h1>Bliciousseries</h1>
+    </header>
+
+    <!-- Login Form Section -->
+    <div class="login-container">
+        <h2>Login</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+        <form id="loginForm" method="POST" action="/login">
+            <input type="hidden" name="role" id="roleField" value="">
+            <input type="text" name="email" placeholder="Enter your email" required>
+            <input type="password" name="password" placeholder="Enter your password" required>
+            <button type="submit">Login</button>
+        </form>
+        {% if error_message %}
+        <div class="error">{{ error_message|safe }}</div>
+        {% endif %}
+
+        <p class="register-link">Don't have an account? <a href="{{ url_for('register_customer') }}">Register here</a></p>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Bliciousseries. All rights reserved.</p>
+    </footer>
+</body>
+</html>

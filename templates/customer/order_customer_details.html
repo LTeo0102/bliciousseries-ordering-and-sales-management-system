@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Details - Bliciousseries</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/order_details.css') }}">
+</head>
+<body>
+
+<header>
+    <a href="{{ url_for('customer_orders') }}" class="back-link">←</a>
+    <h1>Bliciousseries</h1>
+</header>
+
+<main>
+    <div class="page-title">
+        <h2>Order #{{ order.order_id }} Details</h2>
+    </div>
+
+<!-- Order Info -->
+<div class="details-box">
+    <p><strong>Date:</strong> {{ order.order_date.strftime('%Y-%m-%d %H:%M') }}</p>
+
+    <p><strong>Status:</strong>
+        {% if order.status == 'pending' %}
+            <span class="status-badge pending">Pending</span>
+        {% elif order.status == 'proceed' %}
+            <span class="status-badge proceed">Processing</span>
+        {% elif order.status == 'delivery' %}
+            <span class="status-badge delivery">Delivery</span>
+        {% elif order.status == 'completed' %}
+            <span class="status-badge completed">Completed</span>
+        {% elif order.status == 'decline' and order.cancelled_by == 'customer' %}
+            <span class="status-badge cancel">Cancelled</span>
+        {% elif order.status == 'decline' %}
+            <span class="status-badge decline">Declined</span>
+        {% else %}
+            <span class="status-badge">Unknown</span>
+        {% endif %}
+    </p>
+
+    <p><strong>Total:</strong> RM {{ '%.2f'|format(order.total) }}</p>
+    <p><strong>Address:</strong> {{ order.shipping_address or 'Not specified' }}</p>
+
+    <div class="btn-row">
+        {% if order.receipt_image %}
+            <a href="{{ url_for('static', filename='uploads/' ~ order.receipt_image) }}" class="btn-brown" target="_blank">View Receipt</a>
+        {% endif %}
+
+        {% if order.status == 'pending' %}
+            <form method="POST" action="{{ url_for('cancel_order_customer', order_id=order.order_id) }}" style="display:inline;">
+                <button type="submit" class="btn-red">Cancel Order</button>
+            </form>
+        {% endif %}
+    </div>
+</div>
+
+
+    <!-- Products -->
+    <div class="product-section">
+        <h3>Ordered Products</h3>
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price (RM)</th>
+                    <th>Quantity</th>
+                    <th>Subtotal (RM)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ '%.2f'|format(item.unit_price) }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ '%.2f'|format(item.unit_price * item.quantity) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<footer>
+    <p>© 2025 Bliciousseries. Made with ❤️ and 🍪.</p>
+</footer>
+
+</body>
+</html>

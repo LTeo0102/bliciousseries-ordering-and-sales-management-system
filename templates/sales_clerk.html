@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sales Report - Bliciousseries</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='sales_clerk.css') }}">
+</head>
+<body>
+<a href="{{ url_for('clerk_dashboard') }}" class="back-link">&larr;</a>
+<header><h1>Bliciousseries</h1></header>
+<main>
+  <div class="page-title"><h2>Sales Report</h2></div>
+
+  <form method="POST" class="filters">
+    <select name="view_type" onchange="this.form.submit()">
+      <option value="order" {% if view_type == 'order' %}selected{% endif %}>Order</option>
+      <option value="product" {% if view_type == 'product' %}selected{% endif %}>Product</option>
+    </select>
+    {% if view_type == 'order' %}
+      <select name="filter_type" onchange="toggleSearchBox(this.value)">
+        <option value="all" {% if filter_type == 'all' %}selected{% endif %}>All</option>
+        <option value="agent" {% if filter_type == 'agent' %}selected{% endif %}>Agent</option>
+        <option value="customer" {% if filter_type == 'customer' %}selected{% endif %}>Customer</option>
+      </select>
+      <input type="text" name="search_query" id="search_query" placeholder="Search agent name or referral"
+             style="display: {% if filter_type == 'agent' %}inline{% else %}none{% endif %};"
+             value="{{ search_query }}">
+    {% endif %}
+    <select name="month">
+      {% for m in range(1, 13) %}
+        <option value="{{ m }}" {% if m == selected_month %}selected{% endif %}>{{ m }}</option>
+      {% endfor %}
+    </select>
+    <select name="year">
+      {% for y in range(2023, selected_year + 1) %}
+        <option value="{{ y }}" {% if y == selected_year %}selected{% endif %}>{{ y }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">Search</button>
+    {% if view_type == 'product' %}
+    <button type="submit" name="export_excel" value="1">Download Excel</button>
+    {% endif %}
+  </form>
+
+  <div class="summary-cards">
+    <div class="card"><h3>Total Quantity</h3><p>{{ total_quantity }}</p></div>
+    <div class="card"><h3>Total Sales (RM)</h3><p>RM {{ '%.2f'|format(total_amount) }}</p></div>
+  </div>
+
+  {% if view_type == 'order' and filter_type == 'all' and pie_labels %}
+  <div class="chart-container"><h3>Sales by Role (RM)</h3><canvas id="pieChart"></canvas></div>
+  {% endif %}
+
+  {% if view_type == 'order' and filter_type == 'agent' and agent_names %}
+  <div class="chart-container"><h3>Sales by Agent (RM)</h3><canvas id="barChartAgent"></canvas></div>
+  {% endif %}
+
+  {% if view_type == 'order' %}
+  <div class="chart-container"><h3>Sales Over Time (RM)</h3><canvas id="lineChart"></canvas></div>
+  {% endif %}
+
+  {% if view_type == 'product' %}
+  <div class="chart-container"><h3>Sales by Product (RM)</h3><canvas id="salesAmountChart"></canvas></div>
+  <div class="chart-container"><h3>Quantity by Product</h3><canvas id="salesQuantityChart"></canvas></div>
+  {% endif %}
+</main>
+
+<footer><p>&copy; 2025 Bliciousseries. Made with ❤️ and 🍪.</p></footer>
+<script>
+    window.labels = {{ chart_labels | default([]) | tojson }};
+    window.rmData = {{ chart_data | default([]) | tojson }};
+    window.quantityData = {{ chart_quantity | default([]) | tojson }};
+    window.pieLabels = {{ pie_labels | default([]) | tojson }};
+    window.pieData = {{ pie_data | default([]) | tojson }};
+    window.lineLabels = {{ line_labels | default([]) | tojson }};
+    window.lineData = {{ line_data | default([]) | tojson }};
+    window.agentBarLabels = {{ agent_bar_labels | default([]) | tojson }};
+    window.agentBarData = {{ agent_bar_data | default([]) | tojson }};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/sales_clerk.js') }}"></script>
+
+
+</body>
+</html>

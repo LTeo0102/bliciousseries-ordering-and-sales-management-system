@@ -1,0 +1,228 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff8f0;
+    color: #4e342e;
+}
+
+/* Header */
+header {
+    background-color: #4e342e;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Back link */
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    background-color: #8d6e63;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.back-link:hover {
+    background-color: #6d4c41;
+}
+
+/* Page Title */
+.page-title {
+    text-align: center;
+    margin: 30px 0 10px;
+}
+.page-title h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #5d4037;
+}
+
+/* Filters */
+.filters {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.filters label {
+    margin: 0 10px;
+    font-size: 16px;
+}
+.filters select {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    background-color: #fbe9e7;
+}
+
+/* Total Sales */
+.total-sales {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #3e2723;
+    font-weight: bold;
+}
+
+/* Chart */
+#salesChart {
+    max-width: 90%;
+    margin: 0 auto 40px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Table Container */
+.table-container {
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+thead {
+    background-color: #6d4c41;
+    color: white;
+}
+thead th {
+    padding: 14px;
+    font-size: 16px;
+}
+tbody td {
+    padding: 12px;
+    text-align: center;
+    font-size: 15px;
+}
+tbody tr:nth-child(even) {
+    background-color: #fceeea;
+}
+tbody tr:hover {
+    background-color: #ffccbc;
+}
+
+/* View Link */
+a[href*="details"] {
+    color: #6a1b9a;
+    font-weight: bold;
+    text-decoration: none;
+}
+a[href*="details"]:hover {
+    text-decoration: underline;
+}
+
+/* Pagination */
+.pagination {
+    text-align: center;
+    margin: 30px 0;
+}
+.pagination button {
+    padding: 8px 14px;
+    font-size: 14px;
+    margin: 0 8px;
+    border: none;
+    border-radius: 6px;
+    background-color: #8d6e63;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.pagination button:disabled {
+    background-color: #d7ccc8;
+    cursor: not-allowed;
+}
+.pagination button:hover:not(:disabled) {
+    background-color: #6d4c41;
+}
+#pageInfo {
+    font-size: 15px;
+    margin: 0 10px;
+}
+
+.charts {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    max-width: 800px;
+    padding: 0 10px;
+}
+
+.chart-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    width: 100%;
+    text-align: center;
+}
+
+.chart-box h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #5d4037;
+}
+
+#salesChart {
+    max-height: 300px;
+}
+
+.legend-row {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.legend {
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    background-color: #eee;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    font-weight: bold;
+}
+
+.summary-box {
+    background-color: #fceee3;
+    border: 2px solid #e1b7a0;
+    color: #4e342e;
+    font-size: 18px;
+    font-weight: bold;
+    max-width: 400px;
+    margin: 20px auto 10px auto;
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.summary-box .summary-label {
+    margin-right: 6px;
+    font-size: 18px;
+}
+
+.summary-box .summary-value {
+    font-size: 20px;
+    color: #b45f06;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Referral Code</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='view_referral_code.css') }}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Bliciousseries</h1>
+    </header>
+
+    <!-- Page Title Section -->
+    <div class="page-title">
+        Referral Code
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="content">
+        <h2>Your Referral Code</h2>
+        <p>Your referral code is: <strong>{{ referral_code }}</strong></p>
+        <a href="{{ url_for('agent_dashboard') }}" class="back-link">Back to Agent Dashboard</a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Bliciousseries. All rights reserved.</p>
+    </footer>
+</body>
+</html>

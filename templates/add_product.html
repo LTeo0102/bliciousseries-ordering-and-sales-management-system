@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Product</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_product.css') }}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Bliciousseries</h1>
+    </header>
+
+    <!-- Page Title for Manage Products -->
+    <div class="page-title">
+        Add New Product
+    </div>
+
+    <!-- Main Content (Form) -->
+    <div class="form-container">
+        <!-- Flash message display -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="alert-messages">
+                    {% for category, message in messages %}
+                        <li class="alert alert-{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Product Form -->
+        <form method="POST" enctype="multipart/form-data" class="product-form">
+            <div class="form-group">
+                <label for="name">Product Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea><br><br>
+            </div>
+
+            <div class="form-group">
+                <label for="retail_price">Retail Price (RM):</label>
+                <input type="number" step="0.01" id="retail_price" name="retail_price" required><br><br>
+            </div>
+
+            <div class="form-group">
+                <label for="commission">Commission (RM):</label>
+                <input type="number" step="0.01" id="commission" name="commission" required><br><br>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required><br><br>
+            </div>
+
+            <div class="form-group">
+                <label for="image">Product Image:</label>
+                <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" required><br><br>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        
+        <a href="/manage_products" class="back-link">Back to Manage Products</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Bliciousseries. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

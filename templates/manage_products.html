@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products</title>
+    
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='manage_product.css') }}">
+    <!-- Back Button -->
+    <a href="/clerk/dashboard" class="back-link">←</a>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Bliciousseries</h1>
+    </header>
+
+    <!-- Page Title for Manage Products -->
+    <div class="page-title">
+        Manage Products
+    </div>
+
+    <!-- Main Section for Product Management -->
+    <main>
+        <!-- Link to Add New Product (using the '+' button) -->
+        <a href="/add_product" class="add-product-link">+</a>
+
+        <!-- Product List -->
+        <ul class="product-list">
+            {% for product in products %}
+            <li class="product-item">
+                <!-- Product Image -->
+                {% if product[7] %}
+                    <img src="{{ url_for('static', filename='uploads/' + product[7]) }}" alt="{{ product[1] }}" class="product-image">
+                {% else %}
+                    <p>No image available</p>
+                {% endif %}
+                <!-- Product Name -->
+                <h3>{{ product[1] }}</h3>
+
+                <!-- Product Actions -->
+                <div class="product-actions">
+                    <a href="/edit_product/{{ product[0] }}" class="edit-link">Edit</a>
+                    <a href="/delete_product/{{ product[0] }}" onclick="return confirm('Are you sure?')" class="delete-link">Delete</a>
+                    <a href="/view_product/{{ product[0] }}" class="view-link">View</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Bliciousseries. All rights reserved.</p>
+    </footer>
+</body>
+</html>

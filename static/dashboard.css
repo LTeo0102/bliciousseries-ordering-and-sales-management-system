@@ -1,0 +1,114 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff9f1; /* Soft cream background */
+    color: #4e342e; /* Warm chocolate text */
+}
+
+/* Header Styling */
+header {
+    background-color: #3e2723; /* Darker Chocolate Color */
+    color: #fff9f1; /* Light cream text */
+    padding: 20px;
+    text-align: center;
+    font-size: 36px;
+    letter-spacing: 2px;
+}
+
+/* Header Styling for Company Name */
+header h1 {
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Logout Button Styling */
+.logout-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.logout-button {
+    background-color: #d32f2f; /* Red for logout button */
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #b71c1c; /* Darker red on hover */
+}
+
+/* Navigation Menu */
+nav {
+    background-color: #6d4c41; /* Medium chocolate brown */
+    text-align: center;
+    padding: 12px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff9f1; /* Light cream text */
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #3e2723; /* Dark chocolate color on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+    border-radius: 5px;
+}
+
+/* Main Content Styling */
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 2.2rem;
+    color: #3e2723; /* Dark chocolate color for contrast */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #3e2723; /* Dark chocolate color */
+    color: #fff9f1; /* Light cream text */
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Footer Text */
+footer p {
+    margin: 0;
+    font-size: 16px;
+}

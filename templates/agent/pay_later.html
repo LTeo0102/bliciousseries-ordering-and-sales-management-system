@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pay Later Orders</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='pay_later.css') }}">
+</head>
+<body>
+    
+    <header>
+        <a href="{{ url_for('agent_dashboard') }}" class="back-link">←</a>
+        <h1>Bliciousseries</h1>
+    </header>
+
+    <main>
+        <div class="page-title">
+            <h2>Pay Later Orders</h2>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Payment</th>
+                        <th>Total (RM)</th>
+                        <th>Receipt</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ order.order_date.strftime('%Y-%m-%d') }}</td>
+                        <td>{{ order.status.title() }}</td>
+                        <td>
+                            {% if order.payment_verify_status == 'paid' %}
+                                Paid
+                            {% elif order.payment_verify_status == 'unpaid' %}
+                                Rejected
+                            {% elif order.payment_verify_status == 'pending' %}
+                                Pending Verification
+                            {% else %}
+                                Unpaid
+                            {% endif %}
+                        </td>
+                        <td>{{ '%.2f'|format(order.total) }}</td>
+                        <td>
+                            {% if order.receipt_image %}
+                                <a href="{{ url_for('static', filename='uploads/' ~ order.receipt_image) }}" target="_blank" class="view-btn">View</a>
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+<td>
+{% if order.status == 'completed' and order.payment_status == 'pay_later' %}
+    {% if order.payment_verify_status == 'pending' %}
+        <span class="status pending">⏳ Pending</span>
+    {% elif order.payment_verify_status == 'unpaid' %}
+        <span class="status declined">❗ Rejected</span>
+        <a href="{{ url_for('pay_later_payment', order_id=order.order_id) }}" class="pay-btn">Pay Again</a>
+    {% elif order.payment_verify_status == 'paid' %}
+        <span class="status verified">✓ Verified</span>
+    {% else %}
+        <a href="{{ url_for('pay_later_payment', order_id=order.order_id) }}" class="pay-btn">Pay</a>
+    {% endif %}
+{% else %}
+    -
+{% endif %}
+</td>
+
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bliciousseries. Made with ❤️ and 🍪.</p>
+    </footer>
+</body>
+</html>

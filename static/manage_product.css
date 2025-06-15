@@ -1,0 +1,163 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff9f1; /* Soft cream background */
+    color: #4e342e; /* Warm chocolate text */
+}
+
+/* Header Styling */
+header {
+    background-color: #3e2723; /* Darker Chocolate Color */
+    color: #fff9f1; /* Light cream text */
+    padding: 20px;
+    text-align: center;
+    font-size: 36px;
+    letter-spacing: 2px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header Title Styling */
+header h1 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 48px; /* Increased size for company name */
+}
+
+/* Page Title (Centered) */
+.page-title {
+    background-color: #6d4c41; /* Medium chocolate brown */
+    color: #fff9f1; /* Light cream text */
+    text-align: center;
+    padding: 12px 0;
+}
+
+/* Back Link Button (Top-Left Position) */
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #6b4226; /* Chocolate brown */
+    color: #fff; /* White text */
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #8c5939; /* Lighter chocolate brown */
+}
+
+
+/* Add Product Button (+) */
+.add-product-link {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 20px; /* Left margin for spacing */
+    padding: 10px 20px;
+    background-color: #3e2723; /* Dark chocolate color */
+    color: #fff9f1;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 24px; /* Increase size for '+' */
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    line-height: 20px; /* Center the text */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.add-product-link:hover {
+    background-color: #6d4c41; /* Lighter brown on hover */
+}
+
+/* Product List Styling */
+ul.product-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);  /* 6 columns */
+    gap: 20px;
+    justify-items: center; /* Center items horizontally */
+    margin-top: 20px;
+    padding-bottom: 100px; /* Optional padding to ensure smooth scrolling */
+}
+
+/* Product Item Styling */
+.product-item {
+    background-color: #fff;
+    padding: 20px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.product-item img.product-image {
+    max-width: 100px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.product-item h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    font-weight: normal;
+}
+
+.product-item p {
+    font-size: 16px;
+    color: #3e2723;
+}
+
+/* Edit, Delete, View Buttons */
+.product-actions {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 15px;
+}
+
+.product-actions a {
+    font-size: 14px;
+    color: #3e2723;
+    padding: 5px 10px;
+    border: 1px solid #6d4c41;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.product-actions a:hover {
+    background-color: #6d4c41; /* Lighter brown on hover */
+    color: #fff9f1;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #3e2723; /* Dark chocolate background */
+    color: #fff9f1; /* Light cream text */
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
+}
